@@ -16,6 +16,8 @@ outputs = tokenizer(inputs, padding=True, truncation=True, return_tensors="pt")
 print(outputs)
 for i, input in enumerate(outputs["input_ids"]):
     print(f"原始输入: {tokenizer.decode(input)}")
+input_text = tokenizer.batch_decode(outputs["input_ids"])
+print(input_text)
 pre_outputs = model(**outputs)
 # print(pre_outputs.last_hidden_state.shape)
 print(pre_outputs.logits)
