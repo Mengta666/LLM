@@ -10,7 +10,7 @@ from datasets import load_dataset
 from multiprocessing import Value, Lock
 
 
-GITHUB_TOKEN = "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"  #  将你的GitHub令牌复制到此处
+GITHUB_TOKEN = ""  #  将你的GitHub令牌复制到此处
 headers = {"Authorization": f"token {GITHUB_TOKEN}"}
 
 # 爬取github问题页，直接复制的官网
