@@ -247,7 +247,7 @@ def off_policy_mc_prediction(env, n_episodes=20000, epsilon=0.3, gamma=1.0,
             # 由当前的Q来获取当前状态-动作对对应的概率向量b(a|s)
             b_probs = eps_soft_probs(Q, s, actions, epsilon)  # 计算行为策略的概率
             # 随机采样一个动作
-            a = sample_from_prods(actions, b_probs, rng)  # 根据概率选择动作
+            a = sample_from_prods(actions, b_probs, rng)  # 根据概率选择动作（离轨）随机选择一个策略
             s2, r, done = env.step(s, a, noisy=True)  # 执行一步
             b_prob = b_probs[actions.index(a)]  # 获取行为策略概率
             episode.append((s, a, r, b_prob))  # 记录状态、动作、奖励和概率
